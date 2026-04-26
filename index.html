@@ -106,6 +106,39 @@
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
+        /* Chat Widget Styles */
+        #chat-widget {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        #chat-widget.active {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .chat-message {
+            max-width: 80%;
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .typing-dot {
+            width: 4px;
+            height: 4px;
+            background: #465f88;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-4px); }
+        }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md overflow-x-hidden">
@@ -375,4 +408,119 @@
 </div>
 </div>
 </footer>
+    <!-- AI Chat Widget -->
+    <div class="fixed bottom-6 right-6 z-[100] flex flex-col items-end">
+        <!-- Chat Window -->
+        <div id="chat-widget" class="bg-white dark:bg-slate-900 w-[350px] sm:w-[400px] h-[500px] rounded-2xl shadow-2xl border border-slate-100 dark:border-slate-800 flex flex-col mb-4 overflow-hidden origin-bottom-right">
+            <!-- Header -->
+            <div class="bg-primary p-4 flex items-center justify-between text-white">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white">smart_toy</span>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Trợ lý Vanadis</h4>
+                        <p class="text-[10px] opacity-80 uppercase tracking-widest">Đang trực tuyến</p>
+                    </div>
+                </div>
+                <button onclick="toggleChat()" class="hover:bg-white/10 rounded-full p-1 transition-colors">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            
+            <!-- Messages Area -->
+            <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-50 dark:bg-slate-950/50">
+                <div class="chat-message bg-white dark:bg-slate-800 p-3 rounded-2xl rounded-tl-none shadow-sm text-sm border border-slate-100 dark:border-slate-700">
+                    Xin chào! Tôi là trợ lý ảo của Master Mỹ Vân. Rất vui được hỗ trợ bạn. Bạn đang quan tâm đến dịch vụ phun xăm nào ạ? ✨
+                </div>
+            </div>
+
+            <!-- Typing Indicator (Hidden by default) -->
+            <div id="typing-indicator" class="hidden px-4 py-2">
+                <div class="bg-white dark:bg-slate-800 inline-flex gap-1 p-2 rounded-xl border border-slate-100 dark:border-slate-700">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="p-4 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+                <form id="chat-form" class="flex gap-2">
+                    <input id="chat-input" type="text" placeholder="Nhập câu hỏi của bạn..." class="flex-1 bg-slate-100 dark:bg-slate-800 border-0 rounded-full px-4 py-2 text-sm focus:ring-2 focus:ring-primary transition-all">
+                    <button type="submit" class="bg-primary text-white w-10 h-10 rounded-full flex items-center justify-center hover:scale-105 transition-transform">
+                        <span class="material-symbols-outlined">send</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Chat Bubble Button -->
+        <button onclick="toggleChat()" class="bg-primary text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform aura-shadow">
+            <span id="chat-icon-open" class="material-symbols-outlined text-3xl">chat</span>
+            <span id="chat-icon-close" class="material-symbols-outlined text-3xl hidden">close</span>
+        </button>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const widget = document.getElementById('chat-widget');
+            const openIcon = document.getElementById('chat-icon-open');
+            const closeIcon = document.getElementById('chat-icon-close');
+            
+            widget.classList.toggle('active');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        const chatForm = document.getElementById('chat-form');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        const responses = {
+            "mày": "Hiện tại Master Mỹ Vân có các kỹ thuật Phun mày chạm hạt Ombre và Điêu khắc chân mày rất tự nhiên. Bạn có muốn xem ảnh các khách hàng đã làm không?",
+            "môi": "Phun môi Collagen tại Vanadis giúp môi căng mọng, khắc phục tình trạng thâm và khô. Màu sắc cực kỳ tự nhiên ạ!",
+            "giá": "Dạ, chi phí sẽ tùy thuộc vào tình trạng hiện tại và dịch vụ bạn chọn. Thông thường dao động từ 2tr - 5tr. Bạn có muốn để lại SĐT để chúng mình gọi tư vấn kỹ hơn không?",
+            "địa chỉ": "Địa chỉ của chúng mình tại: 123 Đường Đại Lộ Bình Dương, TP. Thủ Dầu Một bạn nhé!",
+            "tư vấn": "Dạ, bạn có thể để lại thông tin hoặc số điện thoại, Master Mỹ Vân sẽ trực tiếp gọi điện tư vấn dáng mày phù hợp cho bạn ạ.",
+            "default": "Dạ, tôi đã nhận được thông tin. Bạn có thể cho tôi biết thêm về tình trạng da hoặc mong muốn cụ thể của bạn không để tôi tư vấn tốt nhất ạ?"
+        };
+
+        chatForm.onsubmit = (e) => {
+            e.preventDefault();
+            const text = chatInput.value.trim();
+            if (!text) return;
+
+            // Add user message
+            addMessage(text, 'user');
+            chatInput.value = '';
+
+            // Show typing and reply
+            typingIndicator.classList.remove('hidden');
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+
+            setTimeout(() => {
+                typingIndicator.classList.add('hidden');
+                const lowerText = text.toLowerCase();
+                let reply = responses.default;
+                
+                for (let key in responses) {
+                    if (lowerText.includes(key)) {
+                        reply = responses[key];
+                        break;
+                    }
+                }
+                addMessage(reply, 'bot');
+            }, 1500);
+        };
+
+        function addMessage(text, side) {
+            const msg = document.createElement('div');
+            msg.className = `chat-message ${side === 'user' ? 'bg-primary text-white ml-auto rounded-tr-none' : 'bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-tl-none'} p-3 rounded-2xl shadow-sm text-sm`;
+            msg.textContent = text;
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+    </script>
 </body></html>
