@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+
+<html class="light" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,700&amp;family=Inter:wght@400;500;600&amp;family=Manrope:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary": "#ffffff",
+                        "inverse-primary": "#aac7ff",
+                        "on-background": "#181c22",
+                        "on-secondary-fixed-variant": "#2e476f",
+                        "on-error-container": "#93000a",
+                        "surface-tint": "#095db7",
+                        "on-surface-variant": "#424752",
+                        "outline": "#727783",
+                        "secondary-fixed-dim": "#aec7f6",
+                        "surface-dim": "#d7dae2",
+                        "tertiary-container": "#964400",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#3f5881",
+                        "on-surface": "#181c22",
+                        "surface-container": "#ebeef6",
+                        "on-secondary-fixed": "#001b3d",
+                        "inverse-surface": "#2d3137",
+                        "inverse-on-surface": "#eef1f9",
+                        "secondary-fixed": "#d6e3ff",
+                        "primary-container": "#005ab4",
+                        "on-error": "#ffffff",
+                        "background": "#f8f9ff",
+                        "on-primary-fixed": "#001b3e",
+                        "surface-container-high": "#e5e8f1",
+                        "on-primary-fixed-variant": "#00458d",
+                        "primary-fixed": "#d6e3ff",
+                        "tertiary-fixed-dim": "#ffb68c",
+                        "tertiary-fixed": "#ffdbc9",
+                        "primary-fixed-dim": "#aac7ff",
+                        "on-tertiary-fixed": "#321200",
+                        "on-primary-container": "#c0d5ff",
+                        "tertiary": "#723200",
+                        "surface": "#f8f9ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-tertiary-container": "#ffc9ac",
+                        "secondary-container": "#b6d0ff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#dfe2eb",
+                        "on-tertiary-fixed-variant": "#753400",
+                        "surface-container-low": "#f1f3fc",
+                        "error-container": "#ffdad6",
+                        "primary": "#004389",
+                        "outline-variant": "#c2c6d4",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#465f88",
+                        "surface-variant": "#dfe2eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "section-padding": "96px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "container-max": "1200px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "64px"
+                    },
+                    "fontFamily": {
+                        "label-sm": ["Manrope"],
+                        "headline-xl": ["Noto Serif"],
+                        "body-lg": ["Manrope"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-sm": ["13px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.33", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.25", "fontWeight": "600"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(223, 226, 235, 0.5);
+        }
+        .aura-shadow {
+            box-shadow: 0 20px 50px rgba(248, 200, 220, 0.25);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg rounded-full sticky top-4 mx-auto w-[95%] max-w-7xl border border-white/20 dark:border-slate-800/50 shadow-[0_20px_50px_rgba(248,200,220,0.25)] flex justify-between items-center px-8 py-4 z-50">
+<div class="text-2xl font-bold italic text-blue-600 dark:text-blue-400 font-headline-xl">
+            Vanadis Beauty &amp; Spa
+        </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-blue-700 dark:text-blue-300 font-bold border-b-2 border-blue-500 pb-1 font-label-sm" href="#">Services</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 transition-all duration-300 font-label-sm" href="#">Portfolio</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 transition-all duration-300 font-label-sm" href="#">About</a>
+<a class="text-slate-600 dark:text-slate-400 font-medium hover:text-blue-500 transition-all duration-300 font-label-sm" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2 rounded-full font-label-sm aura-shadow hover:scale-105 transition-transform">
+            Book Now
+        </button>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[921px] flex items-center pt-24 pb-section-padding px-margin-mobile md:px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="high-end luxury spa interior with soft warm lighting, minimalist decor, and a serene professional atmosphere for beauty treatments" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3ZZnEUeQ2TUyn0zfyRRlr5AkUhz2I0WiJwE7DDg8158kFT8Zc-yjs_lUHjpSkjlzP4_2K2-gyv8dKhnrLOipjQDcz71oL-da5yZcH_1TByq8DFRkAX3-4qHPGLh_HwKaeqvg-XY_furSo24NEOQkLO0d44ngrZa1WDUeD56IoU14aSza21wiXnNWUHnHj60ud8-5lVkAp3XhDnbLSmPk7_xtqhZsiU4o7bBCW-O57n4NDpX2S4SCVWSCMb6NxetVGnKZeTWGKMqU"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-2xl">
+<span class="bg-secondary-container/50 text-on-secondary-container px-4 py-1 rounded-full text-label-sm font-label-sm mb-6 inline-block">
+                CHUYÊN GIA PHUN XĂM THẨM MỸ TẠI BÌNH DƯƠNG
+            </span>
+<h1 class="font-headline-xl text-headline-xl text-primary mb-6">
+                Đánh Thức Vẻ Đẹp <br/> <span class="italic font-bold">Tự Nhiên Và Bền Vững</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10 max-w-lg">
+                Phun Xăm Mỹ Vân mang đến giải pháp làm đẹp tinh tế, an toàn, giúp phái đẹp tự tin tỏa sáng với diện mạo hoàn hảo nhất.
+            </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary text-on-primary px-10 py-4 rounded-full font-label-sm aura-shadow hover:bg-primary-container transition-colors">
+                    ĐẶT LỊCH NGAY
+                </button>
+<button class="border-2 border-primary text-primary px-10 py-4 rounded-full font-label-sm hover:bg-primary/5 transition-colors">
+                    TÌM HIỂU THÊM
+                </button>
+</div>
+</div>
+</header>
+<!-- Pain Points Section -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Bạn Có Đang Lo Lắng?</h2>
+<div class="w-24 h-1 bg-tertiary-container mx-auto rounded-full"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter max-w-container-max mx-auto">
+<div class="glass-card p-10 rounded-lg text-center aura-shadow group transition-transform hover:-translate-y-2">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">error</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Chân mày thưa, nhạt</h3>
+<p class="text-on-surface-variant">Khuôn mặt thiếu điểm nhấn và sức sống khiến bạn mất tự tin khi giao tiếp.</p>
+</div>
+<div class="glass-card p-10 rounded-lg text-center aura-shadow group transition-transform hover:-translate-y-2">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">schedule</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Tốn thời gian trang điểm</h3>
+<p class="text-on-surface-variant">Mất hàng giờ mỗi sáng để kẻ mày, tô môi nhưng vẫn không ưng ý.</p>
+</div>
+<div class="glass-card p-10 rounded-lg text-center aura-shadow group transition-transform hover:-translate-y-2">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-primary text-3xl">sentiment_dissatisfied</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-4">Sợ kết quả không tự nhiên</h3>
+<p class="text-on-surface-variant">Lo lắng về việc xăm lỗi, quá đậm hoặc không phù hợp với khuôn mặt.</p>
+</div>
+</div>
+</section>
+<!-- Solutions / Services Bento Grid -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-white">
+<div class="max-w-container-max mx-auto mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Dịch Vụ Chuyên Sâu</h2>
+<p class="text-on-surface-variant font-body-lg">Công nghệ hiện đại cho kết quả hoàn hảo</p>
+</div>
+<a class="text-primary font-label-sm border-b border-primary pb-1" href="#">Xem tất cả dịch vụ</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter max-w-container-max mx-auto h-auto md:h-[600px]">
+<!-- Main Featured Service -->
+<div class="md:col-span-8 relative group overflow-hidden rounded-lg aura-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close up of professionally tattooed eyebrows with hair-stroke technique on a young woman, soft focus skin texture" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3OOVhlu2PCttj2K5UzE-5EgwlsVcJPIf6CdMX7GYgjk9zPvyIb9Ttj6ZOeeyrQaQvDVQfFFT4XBHGnmn7xqcW_2NdEpURvuKPqGG8xF6HmiCE5dqgK8BK7h0b1vmA2-44UmRBy0AaTL2gNKepKwAAcogBhMIEzv9HpKRZeSxQZOwoBqbRoJnZoGbCa-YxxC1IlfeRxQr4PZuj5dCRKTYheO4Uj3BW27qzP7frSrTnsiwUdikrij8JAMhow0f7DJVA6lTnI_qvcKo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-10 flex flex-col justify-end">
+<span class="text-secondary-fixed font-label-sm mb-2">Dịch vụ nổi bật</span>
+<h3 class="text-white font-headline-lg text-headline-lg mb-4">Phun Mày Chạm Hạt Ombre</h3>
+<p class="text-white/80 max-w-md">Kỹ thuật tạo hiệu ứng hạt mịn như bột, mang lại vẻ đẹp tự nhiên và thanh thoát.</p>
+</div>
+</div>
+<!-- Side Services Stack -->
+<div class="md:col-span-4 flex flex-col gap-gutter">
+<div class="relative h-1/2 group overflow-hidden rounded-lg aura-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="close up of vibrant rose colored lips with glossy finish, professional permanent makeup result" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDK5-lwr_hYAEkvk0T_wpqC3njoyDTmovERaK3LCy5QTpTecwcZRpCghRJAyrcMlr00P4mVSY28vxjCGeEbZKcsotFIZ0LmAeZpjpZKwZF3D6QTTbI4Ud4rGN5X7AKt4QOiSYgdCnJmN-MhFxUvTqH630qOwrNLy-MFegQrg5Ja4u2JhfTqgwxfPpe_KsuzOfH-Z-TVcGXSTy4GMNf4nSJdix197xnlMar2SbRxw1Fz1xjQtL7jDWnv7URIBCntTAO_FqK6TsjPbPw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent p-6 flex flex-col justify-end">
+<h3 class="text-white font-headline-md text-headline-md">Phun Môi Collagen</h3>
+</div>
+</div>
+<div class="relative h-1/2 group overflow-hidden rounded-lg aura-shadow">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="beautiful woman with eyes closed, showing off natural looking permanent eyeliner and lash line enhancement" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4MXnMmoQnXeHwUS0DOCWg8e6EgpL8fW0WWJ03UuXbMs5BftgNUPalSQx-1Fwl-2a6sJYK-YaZuPYRKCKlaz0rLH4Pkcux9ZzmLWWddYulIe6v1Tyq2x_LGecpfl7sQ006XpPwS_TiSRGFBM908KMvaFm-3vr9R9MjoypKPBgqpivvJOsR4kP20k__IvmGOZlKk2avAm1X4d1jKDyomxAfPuj04IXlBMMFeU4LX0bw_2zCGNUZ4mJ2qot4iDeaJlEJaqYs3Rq5ktE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent p-6 flex flex-col justify-end">
+<h3 class="text-white font-headline-md text-headline-md">Phun Mí Mở Tròng</h3>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Expert Introduction -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface-container overflow-hidden">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-64 h-64 bg-primary-fixed/30 rounded-full blur-3xl"></div>
+<div class="relative rounded-lg overflow-hidden aura-shadow z-10 border-8 border-white">
+<img class="w-full aspect-[3/4] object-cover" data-alt="portrait of a professional female beauty therapist in clean white uniform, smiling warmly in a clinical spa setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDu1qkxCRXIUbenGgHUBvaD_pyehUsip8oMrvUqY2C40efZ23ZCUNt_by9S-LdJ1U0L4JT5svxwLVEfcrZAyJStH2NMqqYLxaPBBTD8LO9DHGuQernYYlZbS3C9BrNKzBLLDMS1bH0R5-saZSGkQ43q-AEwTnre5znJVGOw22Ce61eHkjtREG3pHFt6khOvZhZffJbvP2A2fXWQ5ozeA3_unvmKJ0wciaF8Isy2pXYQD3mkQ4KZSLdSMOGGHSZIjtSKwX2m7yM5AKM"/>
+</div>
+</div>
+<div>
+<span class="text-primary font-label-sm mb-4 inline-block tracking-widest">FOUNDER &amp; ARTIST</span>
+<h2 class="font-headline-xl text-headline-xl text-primary mb-6 italic">Master Mỹ Vân</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-6">
+                    Với hơn 10 năm kinh nghiệm trong ngành phun xăm thẩm mỹ, Master Mỹ Vân đã kiến tạo vẻ đẹp cho hàng ngàn phụ nữ. 
+                </p>
+<p class="text-on-surface-variant mb-8">
+                    "Tôi tin rằng mỗi khuôn mặt đều có một nét đẹp riêng. Sứ mệnh của tôi là tôn vinh nét đẹp đó bằng đôi tay khéo léo và cái tâm của người làm nghề, mang đến sự tự tin tuyệt đối cho khách hàng."
+                </p>
+<div class="grid grid-cols-2 gap-6">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">verified</span>
+<span class="font-label-sm">Chứng chỉ Quốc tế</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">award_star</span>
+<span class="font-label-sm">Bàn tay vàng 2022</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop">
+<div class="max-w-container-max mx-auto text-center mb-16">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-4">Tại Sao Chọn Mỹ Vân?</h2>
+<div class="w-24 h-1 bg-tertiary-container mx-auto rounded-full"></div>
+</div>
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-4" data-weight="fill">verified_user</span>
+<h4 class="font-headline-md text-headline-md mb-2">An toàn tuyệt đối</h4>
+<p class="text-sm text-on-surface-variant">Quy trình vô trùng chuẩn y khoa, mực nhập khẩu chính hãng.</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-4" data-weight="fill">architecture</span>
+<h4 class="font-headline-md text-headline-md mb-2">Tỷ lệ vàng</h4>
+<p class="text-sm text-on-surface-variant">Thiết kế dáng mày, môi dựa trên tỷ lệ khuôn mặt riêng biệt.</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-4" data-weight="fill">history_edu</span>
+<h4 class="font-headline-md text-headline-md mb-2">Không đau, không sưng</h4>
+<p class="text-sm text-on-surface-variant">Sử dụng tê chuyên dụng cao cấp, êm ái suốt quá trình thực hiện.</p>
+</div>
+<div class="text-center">
+<span class="material-symbols-outlined text-5xl text-primary mb-4" data-weight="fill">loyalty</span>
+<h4 class="font-headline-md text-headline-md mb-2">Bảo hành dài hạn</h4>
+<p class="text-sm text-on-surface-variant">Cam kết chất lượng và hỗ trợ dặm lại miễn phí sau 2 tháng.</p>
+</div>
+</div>
+</section>
+<!-- Contact Form Section -->
+<section class="py-section-padding px-margin-mobile md:px-margin-desktop bg-primary text-on-primary">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="font-headline-xl text-headline-xl mb-8">Liên Hệ Tư Vấn Miễn Phí</h2>
+<p class="font-body-lg text-body-lg mb-10 opacity-90">
+                    Hãy để lại thông tin, chúng tôi sẽ liên hệ tư vấn dáng mày và môi phù hợp nhất với phong thủy và khuôn mặt của bạn.
+                </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">call</span>
+<span>09xx xxx xxx</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">location_on</span>
+<span>123 Đường Đại Lộ Bình Dương, TP. Thủ Dầu Một</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined">mail</span>
+<span>contact@myvanbeauty.vn</span>
+</div>
+</div>
+</div>
+<div class="glass-card p-10 rounded-lg text-on-background aura-shadow">
+<form class="space-y-6">
+<div>
+<label class="font-label-sm block mb-2">Họ và tên</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3" placeholder="Nguyễn Văn A" type="text"/>
+</div>
+<div>
+<label class="font-label-sm block mb-2">Số điện thoại</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3" placeholder="090 123 4567" type="tel"/>
+</div>
+<div>
+<label class="font-label-sm block mb-2">Dịch vụ quan tâm</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3">
+<option>Phun Mày Ombre</option>
+<option>Phun Môi Collagen</option>
+<option>Phun Mí Mở Tròng</option>
+<option>Khác</option>
+</select>
+</div>
+<div>
+<label class="font-label-sm block mb-2">Lời nhắn</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant focus:border-primary focus:ring-0 transition-colors py-3" placeholder="Tôi muốn tư vấn về..." rows="3"></textarea>
+</div>
+<button class="w-full bg-primary text-on-primary py-4 rounded-full font-label-sm aura-shadow hover:scale-105 transition-transform mt-4">
+                        GỬI YÊU CẦU
+                    </button>
+</form>
+</div>
+</div>
+</section>
+<!-- Map Section -->
+<section class="h-[400px] w-full">
+<img class="w-full h-full object-cover grayscale opacity-50" data-alt="stylized map view of a city area with subtle highlights on key streets and locations in a minimal design style" data-location="Thủ Dầu Một, Bình Dương" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHHaLXRVgAFaqaTXfCOMtjNMWNqcOO3Mfj8n_cNygQgIGP5-6UFQs-7fYTuMPwIiYdCMnaaxfN6Fk6t_AcZjeTiZbQlqqX_qZ1KjhV0a_UeA0Uy9_Vx6xuKCHXV5kSgxEVl6CX4j38pANi5_f-NHuTRWRilazIPMjpfyyZkRTVMjT_5yugAbQlSRUkuaIdeNueBc1GJBK31E3vXC6D8Ey4uTCzva4eY-5-ABP7TDL69MI3eh-RZVUCLvnb7NDtnDIzhDExzSKaeV8"/>
+</section>
+<!-- Footer -->
+<footer class="bg-white dark:bg-slate-950 pt-16 pb-8 px-12 border-t border-slate-100 dark:border-slate-900">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-sm">
+<div class="text-xl font-bold text-blue-600 dark:text-blue-400 font-headline-xl mb-6">Vanadis Beauty &amp; Spa</div>
+<p class="text-slate-500 font-body-md mb-8">Nơi gửi gắm nhan sắc, nâng tầm tự tin cho mọi phụ nữ Việt.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary-fixed transition-colors" href="#">
+<span class="material-symbols-outlined">camera</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-16">
+<div>
+<h5 class="font-label-sm text-on-surface mb-6 uppercase tracking-wider">Dịch Vụ</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors font-body-md" href="#">Phun mày</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors font-body-md" href="#">Phun môi</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors font-body-md" href="#">Phun mí</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-sm text-on-surface mb-6 uppercase tracking-wider">Thông Tin</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors font-body-md" href="#">Về chúng tôi</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors font-body-md" href="#">Chính sách bảo mật</a></li>
+<li><a class="text-slate-500 hover:text-blue-500 transition-colors font-body-md" href="#">Điều khoản</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 font-noto-serif text-sm">© 2024 Vanadis Beauty &amp; Spa. All rights reserved.</p>
+<div class="flex gap-8">
+<span class="text-slate-400 text-xs uppercase tracking-widest font-label-sm">Premium Quality</span>
+<span class="text-slate-400 text-xs uppercase tracking-widest font-label-sm">Expert Care</span>
+</div>
+</div>
+</footer>
+</body></html>
